@@ -1,0 +1,12 @@
+<h1>在庫管理詳細</h1>
+<table class="table table-sm">
+    <tr>
+        <th>品目</th>
+        <td><%= @stock.category %></td>
+        <th>数量</th>
+        <td><%= @stock.amount %></td>
+    </tr>
+    
+</table>
+
+<%= link_to "戻る", stocks_path, class: "btn btn-light" %>
