@@ -1,0 +1,16 @@
+<h1>在庫管理<%= type %></h1>
+
+<%= form_with model: stock, local: true, method: method do |f| %>
+
+<div class="form-group">
+    <label>品目</label>
+    <%= f.text_field :category, class:"form-control" %>
+</div>
+
+<div class="form-group">
+    <label>数量</label>
+    <%= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] , {}, { class:"form-control" } %>
+</div>
+
+<%= f.submit type, class: "btn btn-info"%>
+<% end %>

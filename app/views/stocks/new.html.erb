@@ -1,15 +1,1 @@
-<h1>新規登録</h1>
-<%= form_with model: @stock, local: true do |f| %>
-
-<div class="form-group">
-    <label>品目</label>
-    <%= f.text_field :category, class:"form-control" %>
-</div>
-
-<div class="form-group">
-    <label>数量</label>
-    <%= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] , {}, { class:"form-control" } %>
-</div>
-
-<%= f.submit "登録", class: "btn btn-info"%>
-<% end %>
+<%= render partial: "form" , locals: { type: "登録", stock: @stock, method: nil }  %>
