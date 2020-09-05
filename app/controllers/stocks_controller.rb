@@ -20,7 +20,7 @@ class StocksController < ApplicationController
             flash[:notice] = "在庫管理にデータを１件登録しました"
             redirect_to stocks_path
         else
-            flash.now[:alert] = "登録に失敗しました。"
+            flash.now[:alert] = "登録に失敗しました"
             render :new
         end
     end
@@ -31,17 +31,17 @@ class StocksController < ApplicationController
     def update
         stock_params = params.require(:stock).permit(:category, :amount)
         if @stock.update(stock_params)
-            flash[:notice] = "データを１件更新しました。"
+            flash[:notice] = "データを１件更新しました"
             redirect_to stocks_path
         else
-            flash.now[:alert] = "更新に失敗しました。"
+            flash.now[:alert] = "更新に失敗しました"
             render :edit
         end
     end
     
     def destroy
         @stock.destroy
-        flash[:notice] = "削除しました。"
+        flash[:notice] = "削除しました"
         redirect_to stocks_path
     end
     
