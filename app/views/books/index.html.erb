@@ -32,7 +32,13 @@
  
    <tr>
      <td><%= book.year %>年<%= book.month %>月</td>
-     <td><%= book.inout %></td>
+     <td>
+       <% if book.inout == 1 then %>
+       収入
+       <% else %>
+       支出
+       <% end %>
+     </td>
      <td><%= book.category %></td>
      <td><%= book.amount %>万円</td>
      <td>
