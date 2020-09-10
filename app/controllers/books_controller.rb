@@ -37,7 +37,7 @@ class BooksController < ApplicationController
       flash[:notice] = "データを１件更新しました"
       redirect_to book_path(@book)
     else
-      flash.now[:alert] = "更新に失敗しました。"
+      flash.now[:alert] = "更新に失敗しました"
       render :edit
     end
   end
