@@ -7,6 +7,7 @@ class SessionController < ApplicationController
      user = User.find_by(email: params[:email])
      if user.present? && user.authenticate(params[:password])
          flash[:notice] = "ログインしました"
+         redirect_to books_path
      else
          flash[:alert] = "ログインに失敗しました"
          render "new"
