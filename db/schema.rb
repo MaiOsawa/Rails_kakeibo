@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_134636) do
+ActiveRecord::Schema.define(version: 2020_09_17_062101) do
 
   create_table "books", force: :cascade do |t|
     t.integer "inout"
