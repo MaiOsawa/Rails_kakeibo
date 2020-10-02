@@ -1,9 +1,10 @@
 class BooksController < ApplicationController
   
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_to_signin
   
   def index
-    @books = Book.all
+    @books = Book.where(user_id: session[:user_id])
     @books = @books.where(year: params[:year]) if params[:year].present?
     @books = @books.where(month: params[:month]) if params[:month].present?
   end
@@ -18,7 +19,8 @@ class BooksController < ApplicationController
   end
   
   def create
-    @book = Book.new(book_params)
+    book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
+    book_params[:user_id] = session[:user_id]
     if @book.save
       flash[:notice] = "家計簿に#{ @book.year }年#{ @book.month }月#{ @book.category } のデータを１件登録しました"
       redirect_to books_path
@@ -49,9 +51,9 @@ class BooksController < ApplicationController
   end
   
   private
-
+  
   def set_book
-    @book = Book.find(params[:id])
+    @book = Book.where(user_id: session[:user_id]).find(params[:id])
   end
   
   def book_params

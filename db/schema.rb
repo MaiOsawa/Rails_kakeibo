@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_062101) do
+ActiveRecord::Schema.define(version: 2020_09_22_135300) do
 
   create_table "books", force: :cascade do |t|
     t.integer "inout"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_062101) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
